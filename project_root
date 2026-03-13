@@ -1,0 +1,17 @@
+ai_study_os/
+├── backend/
+│   ├── __init__.py          # Marks the directory as a Python package
+│   ├── main.py              # FastAPI application and route definitions
+│   ├── ai_agent.py          # Gemini API integration and prompt logic
+│   ├── quiz_engine.py       # Quiz processing and validation logic
+│   └── database.py          # SQLite connection and CRUD operations
+├── frontend/
+│   ├── index.html           # Landing page
+│   ├── dashboard.html       # Student dashboard and progress tracking
+│   ├── quiz.html            # Interactive quiz interface
+│   └── chat.html            # AI tutor chat interface
+├── static/
+│   ├── styles.css           # Custom CSS (supplementing Tailwind)
+│   └── app.js               # Frontend JavaScript logic and API calls
+├── requirements.txt         # Python dependencies
+└── README.md                # Project documentation
