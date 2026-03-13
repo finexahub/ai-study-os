@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | AI Study OS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased min-h-screen flex flex-col">
+
+    <nav class="bg-white shadow-sm py-4 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <a href="index.html" class="text-xl font-bold text-blue-600">AI Study OS</a>
+            </div>
+            <div class="flex space-x-6">
+                <a href="dashboard.html" class="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1">Dashboard</a>
+                <a href="chat.html" class="text-gray-600 hover:text-blue-600 font-medium">AI Tutor</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+        <header class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-900">Student Dashboard</h1>
+            <p class="text-gray-500 mt-1">Welcome back! Let's get ready for your CBSE Class 10 exams.</p>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <div class="lg:col-span-2 space-y-8">
+                
+                <section class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-xl font-semibold mb-3 text-gray-900">Today's Study Plan</h2>
+                    <p class="text-gray-600 mb-5">Review your weak areas or start learning a new topic. Your AI coach is ready to assist.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="chat.html" class="bg-indigo-50 text-indigo-700 px-5 py-2.5 rounded-lg font-medium hover:bg-indigo-100 transition duration-200 flex items-center">
+                            💬 Open AI Tutor Chat
+                        </a>
+                    </div>
+                </section>
+
+                <section class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-xl font-semibold mb-2">Generate a Practice Quiz</h2>
+                    <p class="text-sm text-gray-500 mb-6">Enter any CBSE Class 10 topic (e.g., 'Life Processes', 'Light Reflection', 'Polynomials') to instantly generate a 5-question MCQ test.</p>
+                    
+                    <form id="quiz-form" class="flex flex-col sm:flex-row gap-4">
+                        <input type="text" id="topic-input" placeholder="e.g., Chemical Reactions and Equations" 
+                               class="flex-grow border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition" required>
+                        <button type="submit" id="generate-btn" 
+                                class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg transition duration-200 whitespace-nowrap shadow-sm">
+                            Generate Quiz
+                        </button>
+                    </form>
+
+                    <div id="loading-indicator" class="hidden mt-4 flex items-center text-blue-600 font-medium">
+                        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Asking AI to create questions...
+                    </div>
+                </section>
+            </div>
+
+            <div class="space-y-8">
+                <aside class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                    <h2 class="text-xl font-semibold mb-6">Performance Summary</h2>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Target Areas (Weak Topics)</h3>
+                        <ul id="weak-topics-list" class="space-y-2">
+                            <li class="bg-red-50 text-red-700 px-3 py-2 rounded-md text-sm font-medium border border-red-100 flex justify-between">
+                                <span>Trigonometry</span>
+                                <span>⚠️</span>
+                            </li>
+                            <li class="bg-orange-50 text-orange-700 px-3 py-2 rounded-md text-sm font-medium border border-orange-100 flex justify-between">
+                                <span>Carbon and its Compounds</span>
+                                <span>⚠️</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Recent Quizzes</h3>
+                        <ul id="recent-scores-list" class="space-y-3">
+                            <li class="flex justify-between items-center text-sm border-b border-gray-100 pb-2">
+                                <span class="text-gray-700 truncate pr-2">Polynomials</span>
+                                <span class="font-bold text-green-600 bg-green-50 px-2 py-1 rounded">4/5</span>
+                            </li>
+                            <li class="flex justify-between items-center text-sm pb-1">
+                                <span class="text-gray-700 truncate pr-2">Magnetic Effects of Current</span>
+                                <span class="font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">3/5</span>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <script src="../static/app.js"></script>
+</body>
+</html>
